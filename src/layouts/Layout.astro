@@ -1,51 +1,89 @@
 ---
-interface Props {
-	title: string;
-}
+import {ANIMALS_SPECIES} from '../../data/animals/animals'
+import {TREES_SPECIES} from '../../data/trees/trees'
+import {HERBS_SPECIES} from '../../data/herbs/herbs'
+import {MUSHROOMS_SPECIES} from '../../data/mushrooms/mushrooms'
 
 const { title } = Astro.props;
 ---
-
-<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{title} · Echo-Rio-Pedia</title>
+  </head>
+  <body>
+		<nav id="header">
+			<a href="/">Echo-Rio-Pedia</a>
+		</nav>
+    <nav id="sidebar">
+			<ul>
+				<li>
+					<a href="/concepts/animal">Animaux</a>
+					<ul>
+						{Object.entries(ANIMALS_SPECIES).map(([
+							animalId,
+							species
+						]) => (
+							<li>
+								<a href={`/animals/${animalId}`}>{species.name}</a>
+							</li>
+						))}
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="/concepts/tree">Arbres</a>
+					<ul>
+						{Object.entries(TREES_SPECIES).map(([
+							treeId,
+							species
+						]) => (
+							<li>
+								<a href={`/trees/${treeId}`}>{species.name}</a>
+							</li>
+						))}
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="/concepts/herb">Herbes</a>
+					<ul>
+						{Object.entries(HERBS_SPECIES).map(([
+							herbId,
+							species
+						]) => (
+							<li>
+								<a href={`/herbs/${herbId}`}>{species.name}</a>
+							</li>
+						))}
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="/concepts/mushroom">Champignons</a>
+					<ul>
+						{Object.entries(MUSHROOMS_SPECIES).map(([
+							mushroomId,
+							species
+						]) => (
+							<li>
+								<a href={`/mushrooms/${mushroomId}`}>{species.name}</a>
+							</li>
+						))}
+					</ul>
+				</li>
+			</ul>
+    </nav>
 		<slot />
-	</body>
+    <footer>
+			Concept et développement : Romaric Ruga (
+				<a href="Imrok.fr">créativité</a>,
+				<a href="Rimarok.com">développement web</a>
+			)
+		</footer>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

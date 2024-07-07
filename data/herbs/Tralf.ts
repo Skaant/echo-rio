@@ -1,9 +1,9 @@
 import type { HerbSpecies } from "../../types/plants/herbs/HerbSpecies";
-import type { TreeSpecies } from "../../types/plants/trees/TreeSpecies";
 
 export const TRALF: HerbSpecies = {
   id: "tralf",
   name: "Tralf",
+  waterRange: 14,
   maxLeaves: 1,
   leaves: {
     productions: [
@@ -45,5 +45,9 @@ export const TRALF: HerbSpecies = {
         value: 0.25,
       },
     ],
+  },
+  propagation: {
+    rate: 0.5,
+    range: 4,
   },
 };

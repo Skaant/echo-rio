@@ -3,6 +3,7 @@ import type { TreeSpecies } from "../../types/plants/trees/TreeSpecies";
 export const FRAX: TreeSpecies = {
   id: "frax",
   name: "Frax",
+  waterRange: 8,
   maxTrunk: 3,
   leaves: {
     productions: [
@@ -51,5 +52,9 @@ export const FRAX: TreeSpecies = {
         value: 0.25,
       },
     ],
+  },
+  propagation: {
+    rate: 0.25,
+    range: 5,
   },
 };

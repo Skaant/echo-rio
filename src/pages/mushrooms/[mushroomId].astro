@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { MUSHROOMS_SPECIES } from '../../../data/mushrooms/mushrooms';
+
+export function getStaticPaths() {
+  return (Object.entries(MUSHROOMS_SPECIES)).map(([mushroomId]) => ({
+    params: { mushroomId },
+    props: {species: MUSHROOMS_SPECIES[mushroomId] },
+  }));
+}
+
+const { species } = Astro.props;
+---
+<Layout title={species.name}>
+  <h1>{ species.name }</h1>
+  <p>Rayon pour l'eau : {species.waterRange}</p>
+  <h2>Propagation</h2>
+  <p>{species.propagation.rate}/cycle, rayon {species.propagation.range}</p>
+</Layout>

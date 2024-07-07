@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ANIMALS_SPECIES } from '../../../data/animals/animals';
+
+export function getStaticPaths() {
+  return (Object.entries(ANIMALS_SPECIES)).map(([animalId]) => ({
+    params: { animalId },
+    props: {species: ANIMALS_SPECIES[animalId] },
+  }));
+}
+
+const { species } = Astro.props;
+---
+<Layout title={species.name}>
+  <h1>{ species.name }</h1>
+  <p>{ species.tags.join(', ')}</p>
+  <p>Rayon pour l'eau : {species.waterRange}</p>
+  <p>Mouvement : {species.movement}</p>
+  <p>Propagation : {species.propagationRate}</p>
+  <h2>Régime</h2>
+  <p>{JSON.stringify(species.regime)}</p>
+</Layout>

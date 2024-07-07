@@ -1,7 +1,6 @@
+import type { Concept } from "../Concept";
 import type { StaticPropagation } from "./_traits/StaticPropagation";
-import type { Entity } from "./Entity";
 
-export type MushroomSpecies = Entity &
-  StaticPropagation & {
-    waterRange?: number;
-  };
+export type MushroomSpecies = Concept & {
+  waterRange?: number;
+} & StaticPropagation;

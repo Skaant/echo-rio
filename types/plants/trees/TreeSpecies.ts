@@ -1,8 +1,10 @@
 import type { Concept } from "../../Concept";
+import type { StaticPropagation } from "../../entities/_traits/StaticPropagation";
 import type { PlantProduction } from "../PlantProduction";
 import type { PlantRegeneration } from "../PlantRegeneration";
 
 export type TreeSpecies = Concept & {
+  waterRange?: number;
   maxTrunk: number;
   /** If unrelated to `maxTrunk` */
   maxLeaves?: number;
@@ -24,5 +26,5 @@ export type TreeSpecies = Concept & {
     productions?: PlantProduction[];
     regeneration?: PlantRegeneration[];
   };
-};
+} & StaticPropagation;
 export type TreeSpeciesId = TreeSpecies["id"];

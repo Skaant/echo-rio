@@ -1,5 +1,4 @@
 import type { Concept } from "../Concept";
-import type { Entity } from "../entities/Entity";
 import type { AnimalRegimes } from "./AnimalRegimes";
 import type { ANIMAL_TAG } from "./AnimalTag";
 
