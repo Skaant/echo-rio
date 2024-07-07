@@ -1,0 +1,21 @@
+---
+import { TREES_SPECIES } from '../../../data/trees/trees.ts';
+
+export function getStaticPaths() {
+  return (Object.entries(TREES_SPECIES)).map(([treeId]) => ({
+    params: { treeId },
+    props: {species: TREES_SPECIES[treeId] },
+  }));
+}
+
+const { treeId } = Astro.params;
+const { species } = Astro.props;
+---
+<h1>{ species.name }</h1>
+<p>Hauteur du tronc : {species.maxTrunk}</p>
+<h2>Feuillage</h2>
+<p>{ JSON.stringify(species.leaves) }</p>
+<h2>Tronc</h2>
+<p>{ JSON.stringify(species.trunk) }</p>
+<h2>Racines</h2>
+<p>{ JSON.stringify(species.roots) }</p>

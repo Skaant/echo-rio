@@ -19,7 +19,7 @@ export type TreeSpecies = Concept & {
   trunk: {
     productions?: PlantProduction[];
     regeneration?: PlantRegeneration[];
-  }[];
+  };
   roots: {
     productions?: PlantProduction[];
     regeneration?: PlantRegeneration[];

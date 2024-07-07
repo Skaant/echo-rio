@@ -1,6 +1,6 @@
 import type { ANIMAL_TAG } from "./AnimalTag";
-import type { NITROGEN_TYPE } from "../cells/ressources/Nitrogen";
-import type { CARCASS_TYPE } from "../cells/ressources/Carcass";
+import type { NITROGEN_TYPE } from "../cells/_ressources/Nitrogen";
+import type { CARCASS_TYPE } from "../cells/_ressources/Carcass";
 
 export type AnimalRegimes = {
   input: {
