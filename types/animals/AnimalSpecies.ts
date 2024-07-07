@@ -11,8 +11,8 @@ export type AnimalSpecies = Concept & {
   propagationRate?: number;
 };
 export type RefAnimalSpecies = AnimalSpecies["id"];
-export const ANIMAL: Concept = {
-  id: "animal",
-  name: "Animal",
-  description: "Une créature qui se déplace et se reproduit, a un régime.",
+export const ANIMAL_SPECIES: Concept = {
+  id: "animal-species",
+  name: "Espèce animale",
+  description: "Traits de caractères partagés entre individus.",
 };

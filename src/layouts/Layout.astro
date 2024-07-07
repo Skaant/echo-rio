@@ -3,6 +3,7 @@ import {ANIMALS_SPECIES} from '../../data/animals/animals'
 import {TREES_SPECIES} from '../../data/trees/trees'
 import {HERBS_SPECIES} from '../../data/herbs/herbs'
 import {MUSHROOMS_SPECIES} from '../../data/mushrooms/mushrooms'
+import {CONCEPTS} from '../../data/concepts'
 
 const { title } = Astro.props;
 ---
@@ -72,6 +73,21 @@ const { title } = Astro.props;
 						]) => (
 							<li>
 								<a href={`/mushrooms/${mushroomId}`}>{species.name}</a>
+							</li>
+						))}
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="/concepts/concept">Concept</a>
+					<ul>
+						{Object.entries(CONCEPTS).map(([
+							conceptId,
+							concept
+						]) => (
+							<li>
+								<a href={`/concepts/${conceptId}`}>{concept.name}</a>
 							</li>
 						))}
 					</ul>

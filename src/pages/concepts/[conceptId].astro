@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { CONCEPTS } from '../../../data/concepts';
+
+export function getStaticPaths() {
+  return (Object.entries(CONCEPTS)).map(([conceptId]) => ({
+    params: { conceptId },
+    props: {concept: CONCEPTS[conceptId] },
+  }));
+}
+
+const { concept } = Astro.props;
+---
+<Layout title={concept.name}>
+  <h1>{ concept.name }</h1>
+  <p>{concept.description}</p>
+</Layout>
